@@ -45,6 +45,7 @@ public class DirectExchangeConfiguration {
     }
 
 
+
     Queue createDirectQueue2()
     {
         return new Queue(DIRECT_QUEUE_2,true,false,false);
@@ -88,6 +89,7 @@ public class DirectExchangeConfiguration {
     {
         amqpAdmin.declareQueue(createDirectQueue1());
         amqpAdmin.declareQueue(createDirectQueue2());
+        amqpAdmin.declareQueue(createDeadLetterRequest());
         amqpAdmin.declareExchange(createDirectExchange());
         amqpAdmin.declareBinding(createDirectBind1());
         amqpAdmin.declareBinding(createDirectBind2());
